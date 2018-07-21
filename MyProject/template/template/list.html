@@ -1,10 +1,37 @@
 <!DOCTYPE html>
+
+{% extends "template/base.html"%}
+  {% block body_block %}
+  <h1>Here is the information of the users:</h1>
+
+  {% if list%}
+
+  <ol>
+    {% for person in list %}
+    <li>User Info</li>
+      <ul>
+        <li>Name: {{person.name}}</li>
+        <li>Age: {{person.age}}</li>
+        <li>Email: {{person.email}}</li>
+        <li>Occupation: {{person.occupation}}</li>
+        <li>Place: {{person.place}}</li>
+      </ul>
+      {% endfor %}
+  </ol>
+  {% endif %}
+
+  <a href="{% url 'MyApp:users' %}" class="btn btn-primary">Fill The Form</a>
+  <a href="{% url 'index' %}" class="btn btn-primary">Go To Home</a>
+
+  {% endblock %}
+
+<!--
 <html>
   <head>
     <meta charset="utf-8">
-    <title>Users List</title>
+    <title>Users List</title>-->
     <!-- Latest compiled and minified CSS -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <!--<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
   </head>
   <body>
     <h1>Here is the information of the users:</h1>
@@ -30,3 +57,4 @@
 
   </body>
 </html>
+-->
